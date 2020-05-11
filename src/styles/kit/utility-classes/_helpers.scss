@@ -1,0 +1,73 @@
+/**
+ * Private mixin to generate basic utility classes
+ *
+ * @param {string} $property - the real css property to set
+ * @param {string} $shorthand - the shorthand for the property in the generated class
+ * @param {map} $class-map - key/value pairs, key is the generated class, value is the real property value
+ * @param {boolean} $important - whether the generated classes should have !important
+ * @param {string} $breakpoint - breakpoint shorthand to add onto the generated class
+ */
+ @mixin _generator_basic_content ($property, $shorthand, $class-map, $important, $breakpoint: null) {
+  @each $name, $value in $class-map {
+    @if $breakpoint {
+      .#{$shorthand}-#{$name}#{$utility-divider}#{$breakpoint} {
+        #{$property}: #{$value} if($important, !important, null);
+      }
+    } @else {
+      .#{$shorthand}-#{$name} {
+        #{$property}: #{$value} if($important, !important, null);
+      }
+    }
+  }
+}
+
+/**
+ * Private mixin to generate basic utility classes
+ *
+ * .shorthand-class[key]-breakpoint { // output format
+ *   property: class[value] important;
+ * }
+ *
+ * It does not deal with unit multiplication or multi-part classes beyond two parts
+ *
+ * @param {string} $property - the real css property to set
+ * @param {string} $shorthand - the shorthand for the property in the generated class
+ * @param {map} $class-map - key/value pairs, key is the generated class, value is the real property value
+ * @param {list} $breakpoints - list of breakpoints to use
+ * @param {boolean} $important - whether the generated classes should have !important
+ */
+@mixin _generator_basic_classes ($property, $shorthand, $class-map, $breakpoints, $important) {
+  @if length($breakpoints) > 0 {
+    @each $breakpoint in $breakpoints {
+      @if $breakpoint == $utility-no-breakpoint {
+        @include _generator_basic_content($property, $shorthand, $class-map, $important);
+      } @else if $breakpoint == $utility-mobile-only {
+        @include mobile-only {
+          @include _generator_basic_content($property, $shorthand, $class-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-tablet {
+        @include tablet {
+          @include _generator_basic_content($property, $shorthand, $class-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-tablet-only {
+        @include tablet-only {
+          @include _generator_basic_content($property, $shorthand, $class-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-desktop {
+        @include desktop {
+          @include _generator_basic_content($property, $shorthand, $class-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-desktop-only {
+        @include desktop-only {
+          @include _generator_basic_content($property, $shorthand, $class-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-wide {
+        @include wide {
+          @include _generator_basic_content($property, $shorthand, $class-map, $important, $breakpoint);
+        }
+      }
+    }
+  } @else {
+    @include _generator_basic_content($property, $shorthand, $class-map, $important);
+  }
+}

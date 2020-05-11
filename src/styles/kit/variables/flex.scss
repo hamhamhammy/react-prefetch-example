@@ -1,0 +1,74 @@
+// flex
+$flex-shorthand: 'flex' !default;
+$primary-flex: (
+  '0-0': '0 0 auto',
+  '0-1': '0 1 auto',
+  '1-0': '1 0 auto',
+  '1-1': '1 1 auto',
+  'none': 'none',
+) !default;
+$custom-flex: () !default;
+$flexs: map-merge($primary-flex, $custom-flex) !default;
+
+// flex-direction
+$flex-direction-shorthand: 'fd' !default;
+$primary-flex-direction: (
+  'row': 'row',
+  'row-rev': 'row-reverse',
+  'col': 'column',
+  'col-rev': 'column-reverse',
+  'none': 'none',
+) !default;
+$custom-flex-direction: () !default;
+$flex-directions: map-merge($primary-flex-direction, $custom-flex-direction) !default;
+
+
+// flex-wrap
+$flex-wrap-shorthand: 'fw' !default;
+$primary-flex-wrap: (
+  'nowrap': 'nowrap',
+  'wrap': 'wrap',
+  'wrap-rev': 'wrap-reverse',
+) !default;
+$custom-flex-wrap: () !default;
+$flex-wraps: map-merge($primary-flex-wrap, $custom-flex-wrap) !default;
+
+
+// justify-content
+$justify-content-shorthand: 'jc' !default;
+$primary-justify-content: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'between': 'space-between',
+  'around': 'space-around',
+  'stretch': 'stretch',
+) !default;
+$custom-justify-content: () !default;
+$justify-contents: map-merge($primary-justify-content, $custom-justify-content) !default;
+
+
+// align-items
+$align-items-shorthand: 'ai' !default;
+$primary-align-items: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'stretch': 'stretch',
+) !default;
+$custom-align-items: () !default;
+$align-items: map-merge($primary-align-items, $custom-align-items) !default;
+
+
+// align-content
+$align-content-shorthand: 'ac' !default;
+$primary-align-content: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'between': 'space-between',
+  'around': 'space-around',
+  'stretch': 'stretch',
+) !default;
+$custom-align-content: () !default;
+$align-contents: map-merge($primary-align-content, $custom-align-content) !default;

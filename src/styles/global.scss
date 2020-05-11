@@ -1,0 +1,34 @@
+@import "~@/styles/kit-overrides";
+@import "~@/styles/kit/core";
+@import "~@/styles/transitions";
+@import "~@/styles/constants.scss";
+
+html {
+  &.dark-theme {
+    color: $dark-color;
+    background-color: $dark-background-color;
+  }
+  &.light-theme {
+    color: $light-color;
+    background-color: $light-background-color;
+  }
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: inherit;
+  background-color: inherit;
+}
+
+.input-select {
+  background-color: inherit;
+}
+
+.x-padded-container {
+  @include container;
+  @include padding-y(3, 6);
+}

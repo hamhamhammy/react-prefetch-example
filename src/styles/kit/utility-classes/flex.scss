@@ -1,0 +1,49 @@
+@import "./helpers";
+
+@include _generator_basic_classes(
+  'flex',
+  $flex-shorthand,
+  $flexs,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'flex-direction',
+  $flex-direction-shorthand,
+  $flex-directions,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'flex-wrap',
+  $flex-wrap-shorthand,
+  $flex-wraps,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'justify-content',
+  $justify-content-shorthand,
+  $justify-contents,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'align-items',
+  $align-items-shorthand,
+  $align-items,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'align-content',
+  $align-content-shorthand,
+  $align-contents,
+  $utility-breakpoints,
+  $utility-important,
+);

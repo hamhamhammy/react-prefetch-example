@@ -1,0 +1,36 @@
+// Breakpoints
+$tablet: 768px !default;
+$desktop: 980px !default;
+$wide: 1248px !default;
+
+// Container gutters
+$mobile-gutter: $unit !default;
+$tablet-gutter: 2*$unit !default;
+$desktop-gutter: 2*$unit !default;
+$wide-gutter: 2*$unit !default;
+
+// Utility class divider
+$utility-divider: \: !default;
+
+// Utility class important
+$utility-important: true !default;
+
+// Utility class breakpoints
+$utility-no-breakpoint: null !default;
+$utility-mobile-only: mo !default;
+$utility-tablet-only: to !default;
+$utility-tablet: t !default;
+$utility-desktop-only: do !default;
+$utility-desktop: d !default;
+$utility-wide: w !default;
+
+// Utility list of class breakpoints
+$utility-breakpoints: (
+  $utility-no-breakpoint,
+  $utility-mobile-only,
+  $utility-tablet,
+  $utility-tablet-only,
+  $utility-desktop,
+  $utility-desktop-only,
+  $utility-wide,
+) !default;

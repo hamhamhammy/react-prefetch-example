@@ -1,0 +1,12 @@
+$overflow-shorthand: 'ov' !default;
+
+$primary-overflow: (
+  'visible': 'visible',
+  'hidden': 'hidden',
+  'scroll': 'scroll',
+  'auto': 'auto',
+) !default;
+
+$custom-overflow: () !default;
+
+$overflows: map-merge($primary-overflow, $custom-overflow) !default;

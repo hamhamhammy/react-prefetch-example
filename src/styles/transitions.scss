@@ -1,0 +1,21 @@
+// Normal fade
+.x-fade-enter-active,
+.x-fade-leave-active {
+  transition: all 400ms;
+}
+
+.x-fade-enter,
+.x-fade-leave-to {
+  opacity: 0;
+}
+
+// Fast fade
+.x-fade-fast-enter-active,
+.x-fade-fast-leave-active {
+  transition: all 200ms;
+}
+
+.x-fade-fast-enter,
+.x-fade-fast-leave-to {
+  opacity: 0;
+}

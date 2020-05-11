@@ -1,0 +1,36 @@
+.input {
+  @include text-large;
+  height: $unit * 6; // same as button
+  text-align: left;
+  padding-left : $unit * 2;
+  padding-right : $unit * 2;
+  border: 1px solid $color-gray40;
+  border-radius: $unit / 4; // same as button
+  transition: border 250ms ease;
+
+  &.placeholder, // used by select
+  &::placeholder {
+    color: $color-gray60;
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid $color-gray50;
+  }
+
+  &.error {
+    border: 1px solid $color-red;
+  }
+}
+
+.input-error {
+  color: $color-red;
+  text-align: left;
+  padding-top: $unit / 2;
+}
+
+.input-success {
+  color: $color-green;
+  text-align: left;
+  padding-top: $unit / 2;
+}

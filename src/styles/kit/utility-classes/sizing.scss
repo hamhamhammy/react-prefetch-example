@@ -1,0 +1,5 @@
+@import "./helpers";
+
+@include _generator_basic_classes('width', $width-shorthand, $widths, $utility-breakpoints, $utility-important);
+
+@include _generator_basic_classes('height', $height-shorthand, $heights, $utility-breakpoints, $utility-important);

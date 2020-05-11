@@ -1,0 +1,25 @@
+// width
+$width-shorthand: 'w' !default;
+$primary-width: (
+  '25': '25%',
+  '33': '33.3%',
+  '50': '50%',
+  '66': '66.6%',
+  '75': '75%',
+  '100': '100%',
+) !default;
+$custom-width: () !default;
+$widths: map-merge($primary-width, $custom-width) !default;
+
+// height
+$height-shorthand: 'h' !default;
+$primary-height: (
+  '25': '25%',
+  '33': '33.3%',
+  '50': '50%',
+  '66': '66.6%',
+  '75': '75%',
+  '100': '100%',
+) !default;
+$custom-height: () !default;
+$heights: map-merge($primary-height, $custom-height) !default;

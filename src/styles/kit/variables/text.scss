@@ -1,0 +1,43 @@
+// text-align
+$text-align-shorthand: 't-align' !default;
+$primary-text-align: (
+  'left': 'left',
+  'right': 'right',
+  'center': 'center',
+) !default;
+$custom-text-align: () !default;
+$text-aligns: map-merge($primary-text-align, $custom-text-align) !default;
+
+
+// text-decoration
+$text-decoration-shorthand: 't-deco' !default;
+$primary-text-decoration: (
+  'none': 'none',
+  'under': 'underline',
+  'over': 'overline',
+  'strike': 'line-through',
+) !default;
+$custom-text-decoration: () !default;
+$text-decorations: map-merge($primary-text-decoration, $custom-text-decoration) !default;
+
+
+// text-transform
+$text-transform-shorthand: 't-trans' !default;
+$primary-text-transform: (
+  'upper': 'uppercase',
+  'lower': 'lowercase',
+  'capital': 'capitalize',
+) !default;
+$custom-text-transform: () !default;
+$text-transforms: map-merge($primary-text-transform, $custom-text-transform) !default;
+
+
+// font-weight
+$font-weight-shorthand: 't-weight' !default;
+$primary-font-weight: (
+  'bold': 'bold',
+  'normal': 'normal',
+  'lighter': 'lighter',
+) !default;
+$custom-font-weight: () !default;
+$font-weights: map-merge($primary-font-weight, $custom-display) !default;

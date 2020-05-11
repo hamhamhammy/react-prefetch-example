@@ -1,0 +1,34 @@
+$color-shorthand: 'c' !default;
+$background-color-shorthand: 'bg' !default;
+
+$color-black: #000000 !default;
+$color-gray90: #212322 !default;
+$color-gray80: #43484C !default;
+$color-gray70: #66686D !default;
+$color-gray60: #9CA0A5 !default;
+$color-gray50: #ACB2B7 !default;
+$color-gray40: #C8CBCC !default;
+$color-gray30: #E6E6E6 !default;
+$color-gray20: #F3F5F5 !default;
+$color-gray10: #FAFBFC !default;
+$color-white: #FFFFFF !default;
+$color-transparent: transparent !default;
+
+$primary-colors: (
+  'black': $color-black,
+  'gray90': $color-gray90,
+  'gray80': $color-gray80,
+  'gray70': $color-gray70,
+  'gray60': $color-gray60,
+  'gray50': $color-gray50,
+  'gray40': $color-gray40,
+  'gray30': $color-gray30,
+  'gray20': $color-gray20,
+  'gray10': $color-gray10,
+  'white': $color-white,
+  'transparent': $color-transparent,
+) !default;
+
+$custom-colors: () !default;
+
+$colors: map-merge($primary-colors, $custom-colors) !default;

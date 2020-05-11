@@ -1,0 +1,7 @@
+$visible-shorthand: 'v' !default;
+$primary-visible: (
+  'visible': 'visible',
+  'hidden': 'hidden',
+) !default;
+$custom-visible: () !default;
+$visibles: map-merge($primary-visible, $custom-visible) !default;

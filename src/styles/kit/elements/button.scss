@@ -1,0 +1,41 @@
+$button-shorthand: 'btn' !default;
+
+$button-elements: () !default;
+
+@each $name, $config in $button-elements {
+  $color: map-get($config, color);
+  $background-color: map-get($config, background-color);
+
+  .#{$button-shorthand}-#{$name} {
+    display: inline-flex; // Supports anchor links
+    align-items: center;
+    justify-content: center;
+    height: $unit * 6;
+    padding-left: $unit * 2;
+    padding-right: $unit * 2;
+    color: $color;
+    border-radius: $unit / 4;
+    background-color: $background-color;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 250ms ease;
+
+    &:hover {
+      background-color: darken($background-color, 5%);
+    }
+  }
+}
+
+// Button sizes
+.#{$button-shorthand}-large {
+  @include text-large;
+}
+
+.#{$button-shorthand}-medium {
+  @include text-medium;
+}
+
+.#{$button-shorthand}-small {
+  @include text-small;
+}

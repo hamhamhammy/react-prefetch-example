@@ -1,0 +1,30 @@
+// margin
+$margin-shorthand: 'm' !default;
+$primary-margins: (
+  '': null,
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+  'x': ('l', 'r'),
+  'y': ('t', 'b'),
+) !default;
+$custom-margins: () !default;
+$margins-units: (0,1,2,3,4,5,6) !default;
+$margins: map-merge($primary-margins, $custom-margins) !default;
+
+
+//padding
+$padding-shorthand: 'p' !default;
+$primary-paddings: (
+  '': null,
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+  'x': ('l', 'r'),
+  'y': ('t', 'b'),
+) !default;
+$custom-paddings: () !default;
+$paddings-units: (0,1,2,3,4,5,6) !default;
+$paddings: map-merge($primary-paddings, $custom-paddings) !default;

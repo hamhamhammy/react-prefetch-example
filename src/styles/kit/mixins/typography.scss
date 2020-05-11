@@ -1,0 +1,59 @@
+// Hero
+@mixin text-hero {
+  @include responsive(font-size, $hero-mobile--font-size, $hero--font-size);
+  @include responsive(line-height, $hero-mobile--line-height, $hero--line-height);
+}
+
+// h1
+@mixin h1 {
+  @include responsive(font-size, $h1-mobile--font-size, $h1--font-size);
+  @include responsive(line-height, $h1-mobile--line-height, $h1--line-height);
+}
+
+// h2
+@mixin h2 {
+  @include responsive(font-size, $h2-mobile--font-size, $h2--font-size);
+  @include responsive(line-height, $h2-mobile--line-height, $h2--line-height);
+}
+
+// h3
+@mixin h3 {
+  @include responsive(font-size, $h3-mobile--font-size, $h3--font-size);
+  @include responsive(line-height, $h3-mobile--line-height, $h3--line-height);
+}
+
+// h4
+@mixin h4 {
+  @include responsive(font-size, $h4-mobile--font-size, $h4--font-size);
+  @include responsive(line-height, $h4-mobile--line-height, $h4--line-height);
+}
+
+// h5
+@mixin h5 {
+  @include responsive(font-size, $h5-mobile--font-size, $h5--font-size);
+  @include responsive(line-height, $h5-mobile--line-height, $h5--line-height);
+}
+
+// h6
+@mixin h6 {
+  @include responsive(font-size, $h6-mobile--font-size, $h6--font-size);
+  @include responsive(line-height, $h6-mobile--line-height, $h6--line-height);
+}
+
+// Text Large
+@mixin text-large {
+  @include responsive(font-size, $large-mobile--font-size, $large--font-size);
+  @include responsive(line-height, $large-mobile--line-height, $large--line-height);
+}
+
+// Text Medium
+@mixin text-medium {
+  @include responsive(font-size, $medium-mobile--font-size, $medium--font-size);
+  @include responsive(line-height, $medium-mobile--line-height, $medium--line-height);
+}
+
+// Text Small
+@mixin text-small {
+  @include responsive(font-size, $small-mobile--font-size, $small--font-size);
+  @include responsive(line-height, $small-mobile--line-height, $small--line-height);
+}

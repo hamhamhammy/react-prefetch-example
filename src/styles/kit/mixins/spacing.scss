@@ -1,0 +1,55 @@
+@mixin margin($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(margin, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin margin-top($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(margin-top, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin margin-right($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(margin-right, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin margin-left($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(margin-left, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin margin-bottom($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(margin-bottom, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin margin-x($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit((margin-left, margin-right), $xs, $sm, $md, $lg, $important);
+}
+
+@mixin margin-y($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit((margin-top, margin-bottom), $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(padding, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding-top($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(padding-top, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding-right($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(padding-right, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding-left($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(padding-left, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding-bottom($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit(padding-bottom, $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding-x($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit((padding-left, padding-right), $xs, $sm, $md, $lg, $important);
+}
+
+@mixin padding-y($xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include unit((padding-top, padding-bottom), $xs, $sm, $md, $lg, $important);
+}

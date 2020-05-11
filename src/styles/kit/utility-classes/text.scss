@@ -1,0 +1,33 @@
+@import "./helpers";
+
+@include _generator_basic_classes(
+  'text-align',
+  $text-align-shorthand,
+  $text-aligns,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'text-decoration',
+  $text-decoration-shorthand,
+  $text-decorations,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'text-transform',
+  $text-transform-shorthand,
+  $text-transforms,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator_basic_classes(
+  'font-weight',
+  $font-weight-shorthand,
+  $font-weights,
+  $utility-breakpoints,
+  $utility-important,
+);

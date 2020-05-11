@@ -1,0 +1,12 @@
+$cursor-shorthand: 'cur' !default;
+
+$primary-cursors: (
+  'default': 'default',
+  'pointer': 'pointer',
+  'forbid': 'not-allowed',
+  'none': 'none',
+) !default;
+
+$custom-cursors: () !default;
+
+$cursors: map-merge($primary-cursors, $custom-cursors) !default;

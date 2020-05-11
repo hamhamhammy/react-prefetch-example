@@ -1,0 +1,13 @@
+$border-colors: $colors !default;
+
+$border-directions: (
+  '': null,
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+  'x': ('l', 'r'),
+  'y': ('t', 'b'),
+) !default;
+
+$border-shorthand: 'bd' !default;

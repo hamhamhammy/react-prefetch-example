@@ -1,0 +1,96 @@
+@mixin _generator-content ($property, $shorthand, $direction-map, $color-map, $important, $breakpoint: null) {
+  @each $direction-name, $direction-value in $direction-map {
+    @each $color-name, $color-value in $color-map {
+      @if $breakpoint {
+        @if $direction-value {
+          @if type-of($direction-value) == list {
+            .#{$shorthand}-#{$direction-name}-#{$color-name}#{$utility-divider}#{$breakpoint} {
+              @each $d-value in $direction-value {
+                $verbose-direction-value: map-get($direction-map, $d-value);
+                #{$property}-#{$verbose-direction-value}: 1px solid #{$color-value} if($important, !important, null);
+              }
+            }
+          } @else {
+            .#{$shorthand}-#{$direction-name}-#{$color-name}#{$utility-divider}#{$breakpoint} {
+              #{$property}-#{$direction-value}: 1px solid #{$color-value} if($important, !important, null);
+            }
+          }
+        } @else {
+          .#{$shorthand}-#{$color-name}#{$utility-divider}#{$breakpoint} {
+            #{$property}: 1px solid #{$color-value} if($important, !important, null);
+          }
+        }
+      } @else {
+        @if $direction-value {
+          @if type-of($direction-value) == list {
+            .#{$shorthand}-#{$direction-name}-#{$color-name} {
+              @each $d-value in $direction-value {
+                $verbose-direction-value: map-get($direction-map, $d-value);
+                #{$property}-#{$verbose-direction-value}: 1px solid #{$color-value} if($important, !important, null);
+              }
+            }
+          } @else {
+            .#{$shorthand}-#{$direction-name}-#{$color-name} {
+              #{$property}-#{$direction-value}: 1px solid #{$color-value} if($important, !important, null);
+            }
+          }
+        } @else {
+          .#{$shorthand}-#{$color-name} {
+            #{$property}: 1px solid #{$color-value} if($important, !important, null);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Private mixin to generate borders for each breakpoint
+ *
+ * @param {map} $color-map - key/value pairs of colors
+ * @param {map} $direction-map - key/value pairs of directions
+ * @param {list} $breakpoints - list of breakpoints to use
+ */
+@mixin _generator ($property, $color-map, $direction-map, $breakpoints, $important) {
+  @if length($breakpoints) > 0 {
+    @each $breakpoint in $breakpoints {
+      @if $breakpoint == $utility-no-breakpoint {
+        @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important);
+      } @else if $breakpoint == $utility-mobile-only {
+        @include mobile-only {
+          @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-tablet {
+        @include tablet {
+          @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-tablet-only {
+        @include tablet-only {
+          @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-desktop {
+        @include desktop {
+          @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-desktop-only {
+        @include desktop-only {
+          @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-wide {
+        @include wide {
+          @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important, $breakpoint);
+        }
+      }
+    }
+  } @else {
+    @include _generator-content($property, $border-shorthand, $direction-map, $color-map, $important);
+  }
+}
+
+@include _generator (
+  'border',
+  $border-colors,
+  $border-directions,
+  $utility-breakpoints,
+  $utility-important,
+);

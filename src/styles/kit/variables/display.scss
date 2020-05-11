@@ -1,0 +1,13 @@
+$display-shorthand: 'd' !default;
+
+$primary-display: (
+  'block': 'block',
+  'flex': 'flex',
+  'iblock': 'inline-block',
+  'iflex': 'inline-flex',
+  'none': 'none',
+) !default;
+
+$custom-display: () !default;
+
+$displays: map-merge($primary-display, $custom-display) !default;

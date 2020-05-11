@@ -1,0 +1,24 @@
+@mixin breakpoint($min, $max: null) {
+  @if $max {
+    @media screen and (min-width: $min) and (max-width: $max - 1px) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $min){
+      @content;
+    }
+  }
+};
+
+@mixin mobile-only  { @include breakpoint(0, $tablet) { @content }; }
+@mixin tablet       { @include breakpoint($tablet) { @content }; }
+@mixin tablet-only  { @include breakpoint($tablet, $desktop) { @content }; }
+@mixin desktop      { @include breakpoint($desktop) { @content }; }
+@mixin desktop-only { @include breakpoint($desktop, $wide) { @content }; }
+@mixin wide         { @include breakpoint($wide) { @content }; }
+
+@mixin ie-only {
+  @media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}

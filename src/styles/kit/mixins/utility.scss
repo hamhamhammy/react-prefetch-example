@@ -1,0 +1,60 @@
+@mixin calc($property, $calculation) {
+  #{$property}: -webkit-calc(#{$calculation});
+  #{$property}: -moz-calc(#{$calculation});
+  #{$property}: calc(#{$calculation});
+}
+
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin fixed($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: fixed;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin rect($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin circle($size) {
+  @include square($size);
+  border-radius: 50%;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin ellipsize() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// @mixin pseudo($pseudo, $properties, $default-val, $pseudo-val) {
+//   @include _setProperties($properties, $default-val);
+
+//   &:#{$pseudo} {
+//     @include _setProperties($properties, $pseudo-val);
+//   }
+// }
+
+// @mixin active($properties, $default-val, $active-val) {
+//   @include pseudo('active', $properties, $default-val, $active-val);
+// }
+
+// @mixin hover($properties, $default-val, $hover-val) {
+//   @include pseudo('hover', $properties, $default-val, $hover-val);
+// }

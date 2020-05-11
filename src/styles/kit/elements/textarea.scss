@@ -1,0 +1,7 @@
+.input-textarea {
+  @extend .input;
+  display: block;
+  height: auto;
+  resize: vertical;
+  padding-top: $unit;
+}

@@ -1,0 +1,39 @@
+@import "./toolbox";
+
+$custom-colors: ( // TODO - Not working, figure out why
+  'primary': $color-primary,
+  'secondary': $color-secondary,
+  'thirdary': $color-thirdary,
+  'fourthary': $color-fourthary,
+  'fifthary': $color-fifthary,
+  'red': $color-red,
+  'green': $color-green,
+);
+
+// Buttons
+$button-elements: (
+  primary: (
+    color: $color-white,
+    background-color: $color-primary,
+  ),
+  secondary: (
+    color: $color-white,
+    background-color: $color-secondary,
+  ),
+  thirdary: (
+    color: $color-white,
+    background-color: $color-thirdary,
+  ),
+  fourthary: (
+    color: $color-white,
+    background-color: $color-fourthary,
+  ),
+  fifthary: (
+    color: $color-white,
+    background-color: $color-fifthary,
+  ),
+  proceed: (
+    color: $color-white,
+    background-color: $color-green,
+  ),
+);

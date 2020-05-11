@@ -1,0 +1,5 @@
+@import "./_helpers";
+
+@include _generator_basic_classes('color', $color-shorthand, $colors, $utility-breakpoints, $utility-important);
+
+@include _generator_basic_classes('background-color', $background-color-shorthand, $colors, $utility-breakpoints, $utility-important);

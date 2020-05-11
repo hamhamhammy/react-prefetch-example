@@ -1,0 +1,106 @@
+@mixin _generator-content ($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint: null) {
+  @each $spacing-name, $spacing-value in $spacings {
+    @each $spacing-unit in $spacings-units { // $color-name, $color-value
+      @if $breakpoint {
+        @if $spacing-value { // If spacing-value not null then m-t-1 etc
+          @if type-of($spacing-value) == list {
+            .#{$shorthand}-#{$spacing-name}-#{$spacing-unit}#{$utility-divider}#{$breakpoint} {
+              @each $m-value in $spacing-value {
+                $verbose-spacing-value: map-get($spacings, $m-value);
+                #{$property}-#{$verbose-spacing-value}: #{$unit * $spacing-unit} if($important, !important, null);
+              }
+            }
+          } @else {
+            .#{$shorthand}-#{$spacing-name}-#{$spacing-unit}#{$utility-divider}#{$breakpoint} {
+              #{$property}-#{$spacing-value}: #{$unit * $spacing-unit} if($important, !important, null);
+            }
+          }
+        } @else { // If spacing-value null then m-1 etc
+          .#{$shorthand}-#{$spacing-unit}#{$utility-divider}#{$breakpoint} {
+            #{$property}: #{$unit * $spacing-unit} if($important, !important, null);
+          }
+        }
+      } @else {
+        @if $spacing-value {
+          @if type-of($spacing-value) == list {
+            .#{$shorthand}-#{$spacing-name}-#{$spacing-unit} {
+              @each $m-value in $spacing-value {
+                $verbose-spacing-value: map-get($spacings, $m-value);
+                #{$property}-#{$verbose-spacing-value}: #{$unit * $spacing-unit} if($important, !important, null);
+              }
+            }
+          } @else {
+            .#{$shorthand}-#{$spacing-name}-#{$spacing-unit} {
+              #{$property}-#{$spacing-value}: #{$unit * $spacing-unit} if($important, !important, null);
+            }
+          }
+        } @else {
+          .#{$shorthand}-#{$spacing-unit} {
+            #{$property}: #{$unit * $spacing-unit} if($important, !important, null);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Private mixin to generate borders for each breakpoint
+ *
+ * @param {map} $spacings - key/value pairs of spacings
+ * @param {list} $spacings-units - list of multiplier units
+ * @param {list} $breakpoints - list of breakpoints to use
+ */
+@mixin _generator ($property, $shorthand, $spacings, $spacings-units, $breakpoints, $important) {
+  @if length($breakpoints) > 0 {
+    @each $breakpoint in $breakpoints {
+      @if $breakpoint == $utility-no-breakpoint {
+        @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important);
+      } @else if $breakpoint == $utility-mobile-only {
+        @include mobile-only {
+          @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-tablet {
+        @include tablet {
+          @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-tablet-only {
+        @include tablet-only {
+          @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-desktop {
+        @include desktop {
+          @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-desktop-only {
+        @include desktop-only {
+          @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint);
+        }
+      } @else if $breakpoint == $utility-wide {
+        @include wide {
+          @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important, $breakpoint);
+        }
+      }
+    }
+  } @else {
+    @include _generator-content($property, $shorthand, $spacings, $spacings-units, $important);
+  }
+}
+
+@include _generator (
+  'margin',
+  $margin-shorthand,
+  $margins,
+  $margins-units,
+  $utility-breakpoints,
+  $utility-important,
+);
+
+@include _generator (
+  'padding',
+  $padding-shorthand,
+  $paddings,
+  $paddings-units,
+  $utility-breakpoints,
+  $utility-important,
+);

@@ -1,0 +1,6 @@
+@mixin container($xs: $mobile-gutter, $sm: $tablet-gutter, $md: $desktop-gutter, $lg: $wide-gutter) {
+  @include responsive(padding-right padding-left, $xs, $sm, $md, $lg);
+  @include responsive(width, 100%, $tablet, $desktop, $wide);
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,69 @@
+@mixin _setProperties($properties, $value, $important: false) {
+  @each $property in $properties {
+    @if $important {
+      #{$property}: $value !important;
+    } @else {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin _setUnit($properties, $property-value, $important: false) {
+  @if type-of($property-value) == list or type-of($property-value) == string {
+    $formatted-value: null;
+
+    @each $value in $property-value {
+      @if type-of($value) == number {
+        $value: $value*$unit;
+      }
+      $formatted-value: $formatted-value $value;
+    }
+
+    @include _setProperties($properties, $formatted-value, $important);
+
+  } @else if type-of($property-value) == number {
+    @include _setProperties($properties, $unit*$property-value, $important);
+  }
+}
+
+@mixin unit($properties, $xs: 1, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include _setUnit($properties, $xs, $important);
+
+  @include tablet {
+    @include _setUnit($properties, $sm, $important);
+  }
+
+  @if $sm != $md {
+    @include desktop {
+      @include _setUnit($properties, $md, $important);
+    }
+  }
+
+  @if $md != $lg {
+    @include wide {
+      @include _setUnit($properties, $lg, $important);
+    }
+  }
+}
+
+@mixin responsive($properties, $xs, $sm: $xs, $md: $sm, $lg: $md, $important: false) {
+  @include _setProperties($properties, $xs, $important);
+
+  @if $xs != $sm {
+    @include tablet {
+      @include _setProperties($properties, $sm, $important);
+    }
+  }
+
+  @if $sm != $md {
+    @include desktop {
+      @include _setProperties($properties, $md, $important);
+    }
+  }
+
+  @if $md != $lg {
+    @include wide {
+      @include _setProperties($properties, $lg, $important);
+    }
+  }
+}

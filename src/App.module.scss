@@ -1,0 +1,31 @@
+@import "~@/styles/toolbox";
+@import "~@/styles/constants";
+
+.APP {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.APP-HEADER {
+  flex: 0 0 auto;
+}
+
+.APP-CONTENT {
+  @include padding-y(1, 2);
+  flex: 1 1 auto;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+  @at-root html.dark-theme & {
+    border-color: $dark-color;
+  }
+
+  @at-root html.light-theme & {
+    border-color: $light-color;
+  }
+}
+
+.APP-FOOTER {
+  flex: 0 0 auto;
+}
