@@ -1,33 +1,10 @@
 // import React, { Component } from 'react';
 
-import Home from './views/Home/Home'
+import Home from './views/Home/Home';
+import NationalService from './views/NationalService/NationalService';
+
 // import store from './store';
 // console.log('store = ', store);
-
-// eslint-disable-next-line max-classes-per-file
-class AllServices {
-  static prefetch () {
-    console.log('AllServices prefetch');
-  }
-}
-
-class Pages {
-  static prefetch () {
-    console.log('Pages prefetch');
-  }
-}
-
-class KitchenCost {
-  static prefetch () {
-    console.log('KitchenCost prefetch');
-  }
-}
-
-class NationalService {
-  static prefetch () {
-    console.log('NationalService prefetch');
-  }
-}
 
 class Modal {
   // static prefetch () {
@@ -65,79 +42,8 @@ class NationalForm {
   }
 }
 
-class NationalReviews {
-  static prefetch () {
-    console.log('NationalReviews prefetch');
-  }
-}
-
-class NationalConfirmation {
-  static prefetch () {
-    console.log('NationalConfirmation prefetch');
-  }
-}
-
-class LocalService {
-  static prefetch () {
-    console.log('LocalService prefetch');
-  }
-}
-
-class LocalForm {
-  static prefetch () {
-    console.log('LocalForm prefetch');
-  }
-}
-
-class LocalReviews {
-  static prefetch () {
-    console.log('LocalReviews prefetch');
-  }
-}
-
-class LocalConfirmation {
-  static prefetch () {
-    console.log('LocalConfirmation prefetch');
-  }
-}
-
-class LocalCity {
-  static prefetch () {
-    console.log('LocalCity prefetch');
-  }
-}
-
-class LocalProjects {
-  static prefetch () {
-    console.log('LocalProjects prefetch');
-  }
-}
-
-class LeadPage {
-  static prefetch () {
-    console.log('LeadPage prefetch');
-  }
-}
-
-class LeadPageForm {
-  static prefetch () {
-    console.log('LeadPageForm prefetch');
-  }
-}
-
-class LeadPageConfirmation {
-  static prefetch () {
-    console.log('LeadPageConfirmation prefetch');
-  }
-}
-
 
 const routes = [
-  {
-    path: '/services',
-    name: 'homepage',
-    component: Home,
-  },
   // {
   //   path: '/services/all',
   //   name: 'all-services',
@@ -205,6 +111,11 @@ const routes = [
     meta: {
       noHeaderFooter: true,
     },
+  },
+  {
+    path: '/services',
+    name: 'homepage',
+    component: Home,
   },
   // {
   //   path: '/services/c/:slug/:serviceId/reviews/page/:page',
