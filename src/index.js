@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import store from './store';
+import Device from './device';
 
 import { doPrefetch } from './router-utils';
 
 import './index.css';
 import App from './App';
 
+const device = new Device();
+device.init(store);
+
 const render = Component => {
   ReactDOM.render(
     <React.StrictMode>
-      <Component />
+      <Provider store={store}> {/* This enables the redux store for the entire application */}
+        <Component />
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root')
   );

@@ -14,7 +14,7 @@ class Modal {
 
 class ModalOffer {
   static prefetch () {
-    console.log('ModalOffer prefetch');
+    console.log('ModalOffer prefetch lol');
   }
 }
 

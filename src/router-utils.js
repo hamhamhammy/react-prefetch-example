@@ -1,8 +1,10 @@
 import { pathToRegexp } from 'path-to-regexp';
 
+import store from '@/store';
+
 import routesConfig from './router';
 
-const store = 'I am the store'; // replace with real store
+// const store = 'I am the store'; // replace with real store
 
 // const { log } = console;
 
