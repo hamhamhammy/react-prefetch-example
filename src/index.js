@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Device from './device';
 
-import { doPrefetch } from './router-utils';
-
 import './index.css';
 import App from './App';
 
@@ -24,13 +22,7 @@ const render = Component => {
   );
 }
 
-// Do initial prefetch
-doPrefetch(window.location.pathname, (results) => {
-  console.log('prefetch results = ', results);
-  render(App);
-}, () => {
-  window.alert('prefetch failed, we should render 404 component here');
-});
+render(App);
 
 // Ensure hot module reload works
 if (module.hot) {

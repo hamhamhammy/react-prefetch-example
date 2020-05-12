@@ -20,11 +20,7 @@ class Home extends Component {
           },
         });
         resolve('Home prefetch');
-      },   {
-        path: '/services',
-        name: 'homepage',
-        component: Home,
-      },);
+      }, 200);
     })
   }
 
