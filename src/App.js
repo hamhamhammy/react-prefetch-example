@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader'
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,9 +19,19 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      count: 1,
       prefetchLoading: true,
       prefetchError: false,
     };
+  }
+
+  increaseCount = () => {
+    console.log('increaseCount lol');
+    this.setState((state) => {
+      return {
+        count: state.count + 1
+      };
+    });
   }
 
   componentDidMount () {
@@ -50,7 +61,7 @@ class App extends Component {
       <div className={styles.APP}>
         <Router>
           <div className={styles['APP-HEADER']}>
-            App Header
+            App Header - {process.env.NODE_ENV}
             <br/>
             <LinkSpecial to='/services'>
               /services
@@ -59,6 +70,10 @@ class App extends Component {
             <LinkSpecial to='/services/c/hvac-installation/1234567'>
               /services/c/hvac-installation/1234567
             </LinkSpecial>
+            <div>
+              <span>{this.state.count}</span>
+              <button onClick={this.increaseCount}>Increase Count</button>
+            </div>
           </div>
           <div className={styles['APP-CONTENT']}>
             {
@@ -86,4 +101,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default process.env.NODE_ENV === 'development' ? hot(module)(App) : App;
