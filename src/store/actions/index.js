@@ -1,5 +1,4 @@
 import {
-  SET_CATEGORIES, // categories
   ADD_TODO, // todos
   TOGGLE_TODO,
   LOGIN, // user
@@ -10,14 +9,6 @@ import {
 } from "./actionTypes";
 
 let nextTodoId = 0;
-
-// categories actions
-export const setCategories = categories => ({
-  type: SET_CATEGORIES,
-  payload: {
-    categories,
-  },
-});
 
 // todos actions
 export const addTodo = content => ({

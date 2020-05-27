@@ -1,4 +1,4 @@
-import { SET_CATEGORIES } from "../actions/actionTypes";
+import { FETCH_CATEGORIES_SUCCESS } from '../actions/actionTypes';
 
 const initialState = {
   serviceCategories: [],
@@ -6,11 +6,12 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case SET_CATEGORIES: {
-      const { categories } = action.payload;
+    case FETCH_CATEGORIES_SUCCESS: {
+      console.log('whoa2', action);
+      const { serviceCategories } = action.payload;
       return {
         ...state,
-        serviceCategories: categories,
+        serviceCategories,
       };
     }
     default:

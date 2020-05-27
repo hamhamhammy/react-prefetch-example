@@ -1,6 +1,5 @@
 // categories reducer
-export const SET_CATEGORIES = 'SET_CATEGORIES';
-
+export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS';
 // todo reducer
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';

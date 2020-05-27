@@ -9,19 +9,16 @@ function mapStateToProps (state) {
 }
 
 class Home extends Component {
-  static prefetch ({ store }) {
-    return new Promise((resolve) => {
-      console.log('Home prefetch store = ', store);
-      setTimeout(() => {
-        store.dispatch({
-          type: 'SET_CATEGORIES',
-          payload: {
-            categories: ['foo', 'bar', 'baz'],
-          },
-        });
-        resolve('Home prefetch');
-      }, 200);
-    })
+  // Redux store will dispatch async action, async action will get middleware by redux-saga
+  static async prefetch ({ store }) {
+    const categories = await new Promise((resolve, reject) => {
+      store.dispatch({
+        type: 'CATEGORIES_FETCH_REQUESTED',
+        resolve,
+        reject,
+      });
+    });
+    console.log('prefetch done - new prefetch categories = ', categories);
   }
 
   constructor (props) {
@@ -44,12 +41,19 @@ class Home extends Component {
           <span>1{this.state.name}</span>
           <button onClick={this.updateName}>Update name</button>
         </div>
-        Hello Home1<br/>
+        Hello Home<br/>
         {this.props.serviceCategories.map((cat) => {
-          return <li key={cat}>{cat}</li>
+          return <li key={cat.categoryName}>
+            {cat.categoryName}<br/>
+            {cat.pages.map((page) => {
+              return <div key={page.slug} className="p-l-5">
+                {page.serviceId}/{page.slug}
+              </div>
+            })}
+          </li>
         })}
       </div>
-    )
+    );
   }
 }
 
